@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package cn.tursom.unsafe
 
 object NetUtils {
@@ -40,7 +42,7 @@ object NetUtils {
     external fun Long.hton(): Long
 
     inline fun <T> use(action: NetUtils.() -> T): T {
-        return action()
+        return this.action()
     }
 }
 
