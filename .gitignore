@@ -1,0 +1,10 @@
+.gradle
+.idea
+build
+jni/*.o
+jni/*.so
+jni/CMakeFiles
+jni/cmake-build-debug
+jni/cmake_install.cmake
+jni/CMakeCache.txt
+jni/Makefile
