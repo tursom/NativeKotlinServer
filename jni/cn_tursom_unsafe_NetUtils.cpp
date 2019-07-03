@@ -1,32 +1,17 @@
-#include<jni.h>
-#include <stdio.h>
+//
+// Created by tursom on 19-7-3.
+//
+
 #include <netinet/in.h>
-#include "cn_tursom_data_DataKt.h"
-
-
-void htonll(long *l) {
-	auto *c = (unsigned char *) l;
-	for (int i = 0; i < 4; ++i) {
-		c[i] ^= c[7 - i];
-		c[7 - i] ^= c[i];
-		c[i] ^= c[7 - i];
-	}
-}
-
-long ntohll(long l) {
-	htonll(&l);
-	return l;
-}
-
-jboolean True = true;
-jboolean False = false;
-
+#include "cn_tursom_unsafe_NetUtils.h"
+#include "net.h"
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([C)[B
  */
-JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3C(JNIEnv *env, jclass, jcharArray jcharArray1) {
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3C
+		(JNIEnv *env, jobject, jcharArray jcharArray1) {
 	unsigned short *c = env->GetCharArrayElements(jcharArray1, &True);
 	int size = env->GetArrayLength(jcharArray1);
 	for (int i = 0; i < size; ++i) {
@@ -37,16 +22,14 @@ JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3C(JNIEnv 
 	return byteArray;
 }
 
+
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([S)[B
  */
-JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3S(
-		JNIEnv *env,
-		jclass,
-		jshortArray jshortArray1
-) {
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3S
+		(JNIEnv *env, jobject, jshortArray jshortArray1) {
 	short *shortArray = env->GetShortArrayElements(jshortArray1, &True);
 	int size = env->GetArrayLength(jshortArray1);
 	for (int i = 0; i < size; ++i) {
@@ -58,15 +41,12 @@ JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3S(
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([I)[B
  */
-JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3I(
-		JNIEnv *env,
-		jclass,
-		jintArray jintArray1
-) {
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3I
+		(JNIEnv *env, jobject, jintArray jintArray1) {
 	int *shortArray = env->GetIntArrayElements(jintArray1, &True);
 	int size = env->GetArrayLength(jintArray1);
 	for (int i = 0; i < size; ++i) {
@@ -78,12 +58,12 @@ JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3I(
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([J)[B
  */
-JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3J
-		(JNIEnv *env, jclass, jlongArray jlongArray1) {
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3J
+		(JNIEnv *env, jobject, jlongArray jlongArray1) {
 	long *shortArray = env->GetLongArrayElements(jlongArray1, &True);
 	int size = env->GetArrayLength(jlongArray1);
 	for (int i = 0; i < size; ++i) {
@@ -95,12 +75,12 @@ JNIEXPORT jbyteArray JNICALL Java_cn_tursom_data_DataKt_toByteArray___3J
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([C[BI)Z
  */
-JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3C_3BI
-		(JNIEnv *env, jclass, jcharArray jcharArray1, jbyteArray jbyteArray1, jint offset) {
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3C_3BI
+		(JNIEnv *env, jobject, jcharArray jcharArray1, jbyteArray jbyteArray1, jint offset) {
 	unsigned short *c = env->GetCharArrayElements(jcharArray1, &True);
 	int size = env->GetArrayLength(jcharArray1);
 	for (int i = 0; i < size; ++i) {
@@ -111,13 +91,12 @@ JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3C_3BI
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([S[BI)Z
  */
-JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3S_3BI
-		(JNIEnv *env, jclass, jshortArray jshortArray1, jbyteArray jbyteArray1, jint offset) {
-	
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3S_3BI
+		(JNIEnv *env, jobject, jshortArray jshortArray1, jbyteArray jbyteArray1, jint offset) {
 	short *shortArray = env->GetShortArrayElements(jshortArray1, &True);
 	int size = env->GetArrayLength(jshortArray1);
 	for (int i = 0; i < size; ++i) {
@@ -128,12 +107,12 @@ JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3S_3BI
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([I[BI)Z
  */
-JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3I_3BI
-		(JNIEnv *env, jclass, jintArray jintArray1, jbyteArray jbyteArray1, jint offset) {
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3I_3BI
+		(JNIEnv *env, jobject, jintArray jintArray1, jbyteArray jbyteArray1, jint offset) {
 	int *shortArray = env->GetIntArrayElements(jintArray1, &True);
 	int size = env->GetArrayLength(jintArray1);
 	for (int i = 0; i < size; ++i) {
@@ -144,12 +123,12 @@ JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3I_3BI
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toByteArray
  * Signature: ([J[BI)Z
  */
-JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3J_3BI
-		(JNIEnv *env, jclass, jlongArray jlongArray1, jbyteArray jbyteArray1, jint offset) {
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toByteArray___3J_3BI
+		(JNIEnv *env, jobject, jlongArray jlongArray1, jbyteArray jbyteArray1, jint offset) {
 	long *shortArray = env->GetLongArrayElements(jlongArray1, &True);
 	int size = env->GetArrayLength(jlongArray1);
 	for (int i = 0; i < size; ++i) {
@@ -160,12 +139,12 @@ JNIEXPORT jboolean JNICALL Java_cn_tursom_data_DataKt_toByteArray___3J_3BI
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toCharArray
  * Signature: ([B)[C
  */
-JNIEXPORT jcharArray JNICALL Java_cn_tursom_data_DataKt_toCharArray
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1) {
+JNIEXPORT jcharArray JNICALL Java_cn_tursom_unsafe_NetUtils_toCharArray
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1) {
 	auto byteArray = (unsigned short *) env->GetByteArrayElements(jbyteArray1, &False);
 	int size = env->GetArrayLength(jbyteArray1) / 2;
 	for (int i = 0; i < size; ++i) {
@@ -177,12 +156,12 @@ JNIEXPORT jcharArray JNICALL Java_cn_tursom_data_DataKt_toCharArray
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toShortArray
  * Signature: ([B)[S
  */
-JNIEXPORT jshortArray JNICALL Java_cn_tursom_data_DataKt_toShortArray
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1) {
+JNIEXPORT jshortArray JNICALL Java_cn_tursom_unsafe_NetUtils_toShortArray
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1) {
 	auto byteArray = (short *) env->GetByteArrayElements(jbyteArray1, &False);
 	int size = env->GetArrayLength(jbyteArray1) / 2;
 	for (int i = 0; i < size; ++i) {
@@ -193,13 +172,14 @@ JNIEXPORT jshortArray JNICALL Java_cn_tursom_data_DataKt_toShortArray
 	return newArray;
 }
 
+
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toIntArray
  * Signature: ([B)[I
  */
-JNIEXPORT jintArray JNICALL Java_cn_tursom_data_DataKt_toIntArray
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1) {
+JNIEXPORT jintArray JNICALL Java_cn_tursom_unsafe_NetUtils_toIntArray
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1) {
 	auto byteArray = (int *) env->GetByteArrayElements(jbyteArray1, &False);
 	int size = env->GetArrayLength(jbyteArray1) / 4;
 	for (int i = 0; i < size; ++i) {
@@ -211,12 +191,12 @@ JNIEXPORT jintArray JNICALL Java_cn_tursom_data_DataKt_toIntArray
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toLongArray
  * Signature: ([B)[J
  */
-JNIEXPORT jlongArray JNICALL Java_cn_tursom_data_DataKt_toLongArray
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1) {
+JNIEXPORT jlongArray JNICALL Java_cn_tursom_unsafe_NetUtils_toLongArray
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1) {
 	auto byteArray = (long *) env->GetByteArrayElements(jbyteArray1, &False);
 	int size = env->GetArrayLength(jbyteArray1) / 8;
 	for (int i = 0; i < size; ++i) {
@@ -228,105 +208,105 @@ JNIEXPORT jlongArray JNICALL Java_cn_tursom_data_DataKt_toLongArray
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toChar
  * Signature: ([BI)C
  */
-JNIEXPORT jchar JNICALL Java_cn_tursom_data_DataKt_toChar
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1, jint offset) {
+JNIEXPORT jchar JNICALL Java_cn_tursom_unsafe_NetUtils_toChar
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1, jint offset) {
 	auto byteArray = env->GetByteArrayElements(jbyteArray1, &False);
 	return ntohs(*(jchar *) (byteArray + offset));
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toShort
  * Signature: ([BI)S
  */
-JNIEXPORT jshort JNICALL Java_cn_tursom_data_DataKt_toShort
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1, jint offset) {
+JNIEXPORT jshort JNICALL Java_cn_tursom_unsafe_NetUtils_toShort
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1, jint offset) {
 	auto byteArray = env->GetByteArrayElements(jbyteArray1, &False);
 	return ntohs(*(jshort *) (byteArray + offset));
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toInt
  * Signature: ([BI)I
  */
-JNIEXPORT jint JNICALL Java_cn_tursom_data_DataKt_toInt
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1, jint offset) {
+JNIEXPORT jint JNICALL Java_cn_tursom_unsafe_NetUtils_toInt
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1, jint offset) {
 	auto byteArray = env->GetByteArrayElements(jbyteArray1, &False);
 	return ntohl(*(jint *) (byteArray + offset));
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    toLong
  * Signature: ([BI)J
  */
-JNIEXPORT jlong JNICALL Java_cn_tursom_data_DataKt_toLong
-		(JNIEnv *env, jclass, jbyteArray jbyteArray1, jint offset) {
+JNIEXPORT jlong JNICALL Java_cn_tursom_unsafe_NetUtils_toLong
+		(JNIEnv *env, jobject, jbyteArray jbyteArray1, jint offset) {
 	auto byteArray = env->GetByteArrayElements(jbyteArray1, &False);
 	return ntohll(*(jlong *) (byteArray + offset));
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    ntoh
  * Signature: (S)S
  */
-JNIEXPORT jshort JNICALL Java_cn_tursom_data_DataKt_ntoh__S
-		(JNIEnv *, jclass, jshort jshort1) {
+JNIEXPORT jshort JNICALL Java_cn_tursom_unsafe_NetUtils_ntoh__S
+		(JNIEnv *, jobject, jshort jshort1) {
 	return ntohs(jshort1);
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    hton
  * Signature: (S)S
  */
-JNIEXPORT jshort JNICALL Java_cn_tursom_data_DataKt_hton__S
-		(JNIEnv *, jclass, jshort jshort1) {
+JNIEXPORT jshort JNICALL Java_cn_tursom_unsafe_NetUtils_hton__S
+		(JNIEnv *, jobject, jshort jshort1) {
 	return htons(jshort1);
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    ntoh
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cn_tursom_data_DataKt_ntoh__I
-		(JNIEnv *, jclass, jint jint1) {
+JNIEXPORT jint JNICALL Java_cn_tursom_unsafe_NetUtils_ntoh__I
+		(JNIEnv *, jobject, jint jint1) {
 	return ntohl(jint1);
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    hton
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cn_tursom_data_DataKt_hton__I
-		(JNIEnv *, jclass, jint jint1) {
+JNIEXPORT jint JNICALL Java_cn_tursom_unsafe_NetUtils_hton__I
+		(JNIEnv *, jobject, jint jint1) {
 	return htonl(jint1);
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    ntoh
  * Signature: (J)J
  */
-JNIEXPORT jlong JNICALL Java_cn_tursom_data_DataKt_ntoh__J
-		(JNIEnv *, jclass, jlong jlong1) {
+JNIEXPORT jlong JNICALL Java_cn_tursom_unsafe_NetUtils_ntoh__J
+		(JNIEnv *, jobject, jlong jlong1) {
 	return ntohll(jlong1);
 }
 
 /*
- * Class:     cn_tursom_data_DataKt
+ * Class:     cn_tursom_unsafe_NetUtils
  * Method:    hton
  * Signature: (J)J
  */
-JNIEXPORT jlong JNICALL Java_cn_tursom_data_DataKt_hton__J
-		(JNIEnv *, jclass, jlong jlong1) {
+JNIEXPORT jlong JNICALL Java_cn_tursom_unsafe_NetUtils_hton__J
+		(JNIEnv *, jobject, jlong jlong1) {
 	return ntohll(jlong1);
 }

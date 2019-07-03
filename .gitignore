@@ -8,3 +8,4 @@ jni/cmake-build-debug
 jni/cmake_install.cmake
 jni/CMakeCache.txt
 jni/Makefile
+jni/Project.cbp

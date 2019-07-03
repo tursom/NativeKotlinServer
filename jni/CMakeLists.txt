@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 3.14)
 
 SET(detour_SRCS
-	cn_tursom_data_DataKt.cpp
-)
+        cn_tursom_unsafe_NetUtils.cpp
+        net.cpp
+        )
 
 SET(detour_HDRS
-	cn_tursom_data_DataKt.h
-)
+        cn_tursom_unsafe_NetUtils.h
+        net.h
+        )
 
 INCLUDE_DIRECTORIES(Include)
 
