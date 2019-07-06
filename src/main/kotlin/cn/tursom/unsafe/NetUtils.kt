@@ -148,3 +148,8 @@ inline fun Int.toNativeByteArray(byteArray: ByteArray, offset: Int): ByteArray =
 
 inline fun Long.toNativeByteArray(byteArray: ByteArray, offset: Int): ByteArray =
     NetUtils.use { toNativeByteArray(byteArray, offset) }
+
+
+fun main() {
+    println(intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 0).toByteArray().toIntArray().toList())
+}
