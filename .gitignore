@@ -9,3 +9,8 @@ jni/cmake_install.cmake
 jni/CMakeCache.txt
 jni/Makefile
 jni/Project.cbp
+jni/jni
+将删除 jni/jni/
+将删除 src/main/java/
+将删除 src/main/resources/
+将删除 src/test/

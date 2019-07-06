@@ -6,14 +6,16 @@
 #define JNI_NET_H
 
 
-#include <jni.h>
+#include "jni.h"
 
-void htonll(long *l);
+void htonll(jlong *l);
 
-long ntohll(long l);
+inline long ntohll(jlong l) {
+	htonll(&l);
+	return l;
+}
 
 extern jboolean True;
 extern jboolean False;
-
 
 #endif //JNI_NET_H

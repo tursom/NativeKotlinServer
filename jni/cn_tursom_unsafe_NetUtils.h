@@ -2,6 +2,8 @@
 #include <jni.h>
 /* Header for class cn_tursom_unsafe_NetUtils */
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 #ifndef _Included_cn_tursom_unsafe_NetUtils
 #define _Included_cn_tursom_unsafe_NetUtils
 #ifdef __cplusplus
@@ -183,7 +185,137 @@ JNIEXPORT jlong JNICALL Java_cn_tursom_unsafe_NetUtils_ntoh__J
 JNIEXPORT jlong JNICALL Java_cn_tursom_unsafe_NetUtils_hton__J
   (JNIEnv *, jobject, jlong);
 
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([C)[B
+ */
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3C
+  (JNIEnv *, jobject, jcharArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([S)[B
+ */
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3S
+  (JNIEnv *, jobject, jshortArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([I)[B
+ */
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3I
+  (JNIEnv *, jobject, jintArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([J)[B
+ */
+JNIEXPORT jbyteArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3J
+  (JNIEnv *, jobject, jlongArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([C[BI)Z
+ */
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3C_3BI
+  (JNIEnv *, jobject, jcharArray, jbyteArray, jint);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([S[BI)Z
+ */
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3S_3BI
+  (JNIEnv *, jobject, jshortArray, jbyteArray, jint);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([I[BI)Z
+ */
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3I_3BI
+  (JNIEnv *, jobject, jintArray, jbyteArray, jint);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianByteArray
+ * Signature: ([J[BI)Z
+ */
+JNIEXPORT jboolean JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianByteArray___3J_3BI
+  (JNIEnv *, jobject, jlongArray, jbyteArray, jint);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianCharArray
+ * Signature: ([B)[C
+ */
+JNIEXPORT jcharArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianCharArray
+  (JNIEnv *, jobject, jbyteArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianShortArray
+ * Signature: ([B)[S
+ */
+JNIEXPORT jshortArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianShortArray
+  (JNIEnv *, jobject, jbyteArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianIntArray
+ * Signature: ([B)[I
+ */
+JNIEXPORT jintArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianIntArray
+  (JNIEnv *, jobject, jbyteArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianLongArray
+ * Signature: ([B)[J
+ */
+JNIEXPORT jlongArray JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianLongArray
+  (JNIEnv *, jobject, jbyteArray);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianChar
+ * Signature: ([BI)C
+ */
+JNIEXPORT jchar JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianChar
+  (JNIEnv *, jobject, jbyteArray, jint);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianShort
+ * Signature: ([BI)S
+ */
+JNIEXPORT jshort JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianShort
+  (JNIEnv *, jobject, jbyteArray, jint);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianInt
+ * Signature: ([BI)I
+ */
+JNIEXPORT jint JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianInt
+  (JNIEnv *, jobject, jbyteArray, jint);
+
+/*
+ * Class:     cn_tursom_unsafe_NetUtils
+ * Method:    toNativeEndianLong
+ * Signature: ([BI)J
+ */
+JNIEXPORT jlong JNICALL Java_cn_tursom_unsafe_NetUtils_toNativeEndianLong
+  (JNIEnv *, jobject, jbyteArray, jint);
+
 #ifdef __cplusplus
 }
 #endif
 #endif
+
+#pragma clang diagnostic pop

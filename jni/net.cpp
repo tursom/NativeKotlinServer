@@ -7,16 +7,11 @@
 jboolean True = true;
 jboolean False = false;
 
-void htonll(long *l) {
+void htonll(jlong *l) {
 	auto *c = (unsigned char *) l;
 	for (int i = 0; i < 4; ++i) {
 		c[i] ^= c[7 - i];
 		c[7 - i] ^= c[i];
 		c[i] ^= c[7 - i];
 	}
-}
-
-long ntohll(long l) {
-	htonll(&l);
-	return l;
 }
